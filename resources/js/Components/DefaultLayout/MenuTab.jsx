@@ -8,7 +8,7 @@ function MenuTab({activeUrl,icon, text}) {
   return (
     <Link className={url==activeUrl?
     "flex gap-3 py-2 group bg-sky-200 px-3 rounded-lg menu-tab":
-    "flex gap-3 py-2 group hover:bg-gray-200 px-3 rounded-lg menu-tab"}
+    "flex gap-3 py-2 group hover:bg-gray-100 px-3 rounded-lg menu-tab"}
     href={activeUrl}
     method='get'>
         <FontAwesomeIcon

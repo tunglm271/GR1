@@ -1,8 +1,16 @@
 import DefaultLayout from '@/Layouts/DefaultLayout';
-function Calendar() {
+import Breadcrumb from '@/Components/Common/Breadcrumb';
+import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+
+
+function Calendar(props) {
   return (
-    <DefaultLayout>
-        Calendar
+    <DefaultLayout
+        auth={props.auth}
+        errors={props.errors}
+        header={"Calendar"}
+    >
+        <Breadcrumb icon={faCalendarAlt} title={'Calendar'}/>
     </DefaultLayout>
   )
 }
