@@ -20,9 +20,22 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "@emotion/react": "^11.11.4",
+        "@emotion/styled": "^11.11.5",
         "@fortawesome/fontawesome-svg-core": "^6.5.2",
         "@fortawesome/free-solid-svg-icons": "^6.5.2",
         "@fortawesome/react-fontawesome": "^0.2.2",
-        "font-awesome": "^4.7.0"
+        "@fullcalendar/core": "^6.1.14",
+        "@fullcalendar/daygrid": "^6.1.14",
+        "@fullcalendar/interaction": "^6.1.14",
+        "@fullcalendar/list": "^6.1.14",
+        "@fullcalendar/react": "^6.1.14",
+        "@fullcalendar/timegrid": "^6.1.14",
+        "@mui/icons-material": "^5.15.20",
+        "@mui/material": "^5.15.20",
+        "@mui/x-data-grid": "^7.7.0",
+        "chart.js": "^4.4.3",
+        "font-awesome": "^4.7.0",
+        "react-chartjs-2": "^5.2.0"
     }
 }

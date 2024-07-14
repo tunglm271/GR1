@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Personal\DashboardController;
 use App\Http\Controllers\Personal\CalendarController;
 use App\Http\Controllers\Personal\TaskController;
+use App\Http\Controllers\WorkspaceController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -31,9 +32,24 @@ Route::get('/', function () {
 
 Route::prefix('/personal')->middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
+    
     Route::get('/calendar', [CalendarController::class,'index'])->name('calendar');
-    Route::get('/tasks', [TaskController::class,'index'])->name('task');
+
+    Route::prefix('/tasks')->group(function () {
+        Route::get('', [TaskController::class,'index'])->name('view');
+        Route::post('/create', [TaskController::class,'createTask'])->name('create');
+        Route::post('/multi-delete',[TaskController::class,'deleteMultiTask'])->name('delete-all');
+        Route::post('/check/{id}',[TaskController::class,'checkTask'])->name('check');
+        Route::post('/uncheck/{id}',[TaskController::class,'unCheckTask'])->name('check');
+    })->name('tasks');
+
 })->name("personal");
+
+
+Route::prefix('/workspace')->middleware(['auth', 'verified'])->group(function () {
+    Route::get('/{id}',[WorkspaceController::class,'viewWorkspace'])->name('view');
+    Route::post('/create',[WorkspaceController::class,'createWorkspace'])->name('create');
+})->name("workspace");
 
 
 Route::middleware('auth')->group(function () {
